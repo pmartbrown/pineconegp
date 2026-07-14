@@ -1,386 +1,424 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pinecone Capital, LLC — A Disciplined House for Private Credit</title>
-<meta name="description" content="Pinecone Capital is the general partner behind Rez Gap Plus — short-duration, escrow-protected private credit. Preservation first, quarterly income.">
+<title>Pinecone Capital, LLC — Private Credit · Short-Duration · Escrow-Protected</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bone:#f3efe6; --bone2:#efe9dd; --ink:#1c1e1b; --brass:#AA8A54;
-  --brass-d:#7a5f2e; --brass-m:#9c7c46; --muted:#54574f; --muted2:#42453e;
-  --line:rgba(28,30,27,.14); --line-soft:rgba(28,30,27,.10);
-}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bone);color:var(--ink);-webkit-font-smoothing:antialiased}
+:root{
+  --bg:#06110d;--bg2:#081712;--accent:#5FBE4A;--accent2:#7fce68;
+  --text:#eaf1ea;--muted:#b7cdb2;--muted2:#8fb488;--line:rgba(255,255,255,.1);
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
 img{display:block}
-a{color:inherit}
-.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 56px}
-.rule{width:44px;height:1px;background:var(--brass);margin:0 auto}
-.eyebrow{font:400 12px 'Jost';letter-spacing:.34em;text-transform:uppercase;color:var(--brass-m)}
-.section{position:relative;padding:120px 0}
-.center{text-align:center}
-h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.005em}
-em{font-style:italic;color:var(--brass-d);font-weight:500}
 
-/* ---------- NAV ---------- */
-header.nav{position:sticky;top:0;z-index:50;background:rgba(243,239,230,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
-.nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:20px 56px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{width:34px;height:34px}
-.brand .wm{font:600 14px/1 'Jost';letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
-.navlinks{display:flex;align-items:center;gap:30px}
-.navlinks a{font:400 13px 'Jost';letter-spacing:.12em;text-transform:uppercase;color:#3b3d38;text-decoration:none;transition:color .2s}
-.navlinks a:hover{color:var(--brass-d)}
-.portal{border:1px solid var(--brass);color:var(--brass-d)!important;padding:10px 20px;border-radius:2px;letter-spacing:.12em!important;transition:background .2s,color .2s}
-.portal:hover{background:var(--brass);color:var(--bone)!important}
+/* ---------- shared layout ---------- */
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 56px;position:relative;z-index:5}
+.sec{position:relative;overflow:hidden}
+.eyebrow{font:500 12px 'Space Grotesk';letter-spacing:.28em;text-transform:uppercase;color:var(--accent2);margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:40px;height:1px;background:var(--accent);flex:none}
+.eyebrow.center{justify-content:center}
+h2.hd{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:46px;line-height:1.08;letter-spacing:-.02em}
+h2.hd b{font-weight:600}h2.hd .lime{color:var(--accent2)}
+.lead{font:300 18px/1.65 'Inter';color:var(--muted);max-width:600px}
 
-/* ---------- BUTTONS ---------- */
-.b1{background:var(--ink);color:var(--bone);padding:15px 30px;border-radius:2px;font:500 13px 'Jost';letter-spacing:.12em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:opacity .2s}
-.b1:hover{opacity:.85}
-.b2{border:1px solid var(--brass);color:var(--brass-d);padding:15px 30px;border-radius:2px;font:500 13px 'Jost';letter-spacing:.12em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background .2s,color .2s}
-.b2:hover{background:var(--brass);color:var(--bone)}
-.b3{color:#3b3d38;font:500 13px 'Jost';letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--brass);padding-bottom:3px;transition:color .2s}
-.b3:hover{color:var(--brass-d)}
-.cta{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+/* topographic contours reusable */
+.contours{position:absolute;inset:0;pointer-events:none}
+.glow{position:absolute;width:900px;height:900px;right:-160px;top:-220px;background:radial-gradient(circle,rgba(95,190,74,.16),transparent 62%);pointer-events:none}
+.glow2{position:absolute;width:700px;height:700px;left:-220px;bottom:-260px;background:radial-gradient(circle,rgba(30,80,55,.55),transparent 60%);pointer-events:none}
+.grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;pointer-events:none}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;overflow:hidden;padding:96px 0 104px}
-.hero .paper{position:absolute;inset:0;opacity:.55;background:radial-gradient(circle at 50% -5%,rgba(170,138,84,.13),transparent 55%);pointer-events:none}
-.hero .inner{position:relative;text-align:center;max-width:880px;margin:0 auto;z-index:2}
-.hero .eyebrow{margin-bottom:28px}
-.hero .rule{margin:0 auto 30px}
-.hero h1{font-size:74px;line-height:1.05;margin-bottom:26px}
-.hero .lede{font:300 19px/1.7 'Inter';max-width:560px;margin:0 auto 40px;color:var(--muted2)}
-.engines{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.eng{padding:34px 30px;text-align:center;border-left:1px solid var(--line-soft)}
-.eng:first-child{border-left:none}
-.eng .rn{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--brass);margin-bottom:8px}
-.eng h3{font-weight:600;font-size:25px;margin-bottom:8px}
-.eng p{font:300 13.5px/1.55 'Inter';color:var(--muted)}
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .35s ease,border-color .35s ease,padding .35s ease}
+.nav.scrolled{background:rgba(6,17,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:24px 56px;transition:padding .35s ease}
+.nav.scrolled .navin{padding:16px 56px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:40px;height:40px}
+.brand .wm{font:500 18px/1 'Space Grotesk';letter-spacing:.04em}
+.brand .wm b{color:var(--accent);font-weight:600}.brand .wm span{color:#fff;font-weight:400}
+.navlinks{display:flex;align-items:center;gap:32px}
+.navlinks a{font:400 14px 'Space Grotesk';color:#d3e4cf;letter-spacing:.02em;transition:color .2s}
+.navlinks a:hover{color:#fff}
+.portal{background:var(--accent);color:var(--bg)!important;padding:11px 20px;border-radius:7px;font-weight:600!important;transition:background .2s,transform .2s}
+.portal:hover{background:var(--accent2);transform:translateY(-1px)}
 
-/* ---------- SECTION HEADINGS ---------- */
-.shead{text-align:center;max-width:760px;margin:0 auto 64px}
-.shead .eyebrow{margin-bottom:22px}
-.shead .rule{margin:0 auto 26px}
-.shead h2{font-size:48px;line-height:1.08;margin-bottom:20px}
-.shead p{font:300 18px/1.7 'Inter';color:var(--muted2);max-width:600px;margin:0 auto}
+/* ---------- hero ---------- */
+.hero-sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:90px}
+.hero-sec .contours{opacity:.85}
+.fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,17,13,.55),transparent 30%,transparent 60%,rgba(6,17,13,.85));pointer-events:none}
+.hero{max-width:820px;padding-top:20px}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:76px;line-height:1.03;letter-spacing:-.02em;margin-bottom:30px}
+.hero h1 b{font-weight:600}.hero h1 .lime{color:var(--accent2)}
+.hero .lede{font:300 20px/1.6 'Inter';max-width:560px;color:var(--muted);margin-bottom:40px}
+.cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.b1{background:var(--accent);color:var(--bg);padding:16px 28px;border-radius:8px;font-weight:600;font-size:15px;transition:background .2s,transform .2s}
+.b1:hover{background:var(--accent2);transform:translateY(-2px)}
+.b2{border:1px solid rgba(255,255,255,.3);color:var(--text);padding:16px 28px;border-radius:8px;font-weight:500;font-size:15px;backdrop-filter:blur(4px);transition:border-color .2s,background .2s}
+.b2:hover{border-color:var(--accent);background:rgba(95,190,74,.08)}
+.b3{color:var(--accent2);font-weight:500;font-size:15px}
+.b3:hover{color:#fff}
+.strip{position:absolute;left:0;right:0;bottom:0;z-index:8;border-top:1px solid var(--line);background:rgba(6,17,13,.4);backdrop-filter:blur(6px)}
+.stripin{max-width:1240px;margin:0 auto;padding:22px 56px;display:flex;gap:0}
+.si{flex:1;display:flex;align-items:center;gap:13px;padding:4px 30px;border-left:1px solid var(--line)}
+.si:first-child{border-left:none;padding-left:0}
+.si .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(95,190,74,.2);flex:none}
+.si .lab{font:500 11px 'Space Grotesk';letter-spacing:.14em;text-transform:uppercase;color:var(--accent2)}
+.si .nm{font:500 15px 'Inter';color:var(--text)}
+.si .nm small{display:block;font-weight:300;font-size:12px;color:var(--muted2);letter-spacing:0;text-transform:none;margin-top:2px}
 
-/* ---------- STRATEGY / PILLARS ---------- */
-.strategy{background:linear-gradient(180deg,var(--bone),var(--bone2))}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
-.pillar{padding:52px 40px;text-align:center;border-left:1px solid var(--line-soft)}
+/* ---------- engines ---------- */
+.engines-sec{padding:120px 0}
+.engines-sec .glow{top:auto;bottom:-300px;right:-200px;opacity:.7}
+.sechead{max-width:640px;margin-bottom:56px}
+.sechead .lead{margin-top:20px}
+.egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.ecard{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:16px;padding:38px 34px;transition:transform .3s,border-color .3s,background .3s}
+.ecard:hover{transform:translateY(-6px);border-color:rgba(95,190,74,.4);background:linear-gradient(160deg,rgba(95,190,74,.06),rgba(255,255,255,.01))}
+.ecard .rn{font:500 12px 'Space Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.ecard .rn::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(95,190,74,.18)}
+.ecard h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:25px;letter-spacing:-.01em;margin-bottom:6px}
+.ecard .sub{font:500 13px 'Space Grotesk';color:var(--muted2);letter-spacing:.02em;margin-bottom:18px}
+.ecard p{font:300 15px/1.65 'Inter';color:var(--muted)}
+.ecard .lnk{margin-top:22px;font:500 14px 'Space Grotesk';color:var(--accent2);display:inline-flex;align-items:center;gap:7px;transition:gap .2s}
+.ecard .lnk:hover{gap:12px;color:#fff}
+
+/* ---------- strategy ---------- */
+.strategy-sec{padding:110px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:54px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.pillar{padding:44px 40px;border-left:1px solid var(--line)}
 .pillar:first-child{border-left:none}
-.pillar .rn{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--brass);margin-bottom:14px}
-.pillar h3{font-weight:600;font-size:30px;margin-bottom:16px}
-.pillar p{font:300 15px/1.7 'Inter';color:var(--muted)}
+.pillar .pn{font-family:'Space Grotesk';font-weight:300;font-size:34px;color:rgba(127,206,104,.35);margin-bottom:20px}
+.pillar h3{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:22px;margin-bottom:12px}
+.pillar p{font:300 14.5px/1.6 'Inter';color:var(--muted)}
 
-/* ---------- PROOF GRID ---------- */
-.proof{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.pcell{padding:46px 44px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.pcell .num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--brass);margin-bottom:16px}
-.pcell h3{font-weight:600;font-size:27px;margin-bottom:12px}
-.pcell p{font:300 15px/1.7 'Inter';color:var(--muted)}
+/* ---------- risk ---------- */
+.risk-sec{padding:120px 0}
+.risk-sec .contours{opacity:.16}
+.risk-sec .glow2{opacity:.6}
+.rgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:54px}
+.rcard{display:flex;gap:20px;padding:32px 30px;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:14px;transition:border-color .3s}
+.rcard:hover{border-color:rgba(95,190,74,.35)}
+.rico{flex:none;width:48px;height:48px;border-radius:11px;background:rgba(95,190,74,.12);border:1px solid rgba(95,190,74,.3);display:flex;align-items:center;justify-content:center}
+.rico svg{width:24px;height:24px;stroke:var(--accent2);fill:none;stroke-width:1.6}
+.rcard h3{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px;margin-bottom:8px}
+.rcard p{font:300 14.5px/1.6 'Inter';color:var(--muted)}
 
-/* ---------- HOW IT WORKS ---------- */
-.flow{background:linear-gradient(180deg,var(--bone2),var(--bone))}
-.steps{max-width:820px;margin:0 auto}
-.step{display:grid;grid-template-columns:88px 1fr;gap:34px;align-items:baseline;padding:38px 0;border-top:1px solid var(--line)}
-.step:last-child{border-bottom:1px solid var(--line)}
-.step .rn{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:44px;color:var(--brass);line-height:1;text-align:center}
-.step h3{font-weight:600;font-size:27px;margin-bottom:9px}
-.step p{font:300 15.5px/1.7 'Inter';color:var(--muted)}
-.step .who{font:500 11px 'Jost';letter-spacing:.2em;text-transform:uppercase;color:var(--brass-m);display:block;margin-bottom:8px}
+/* ---------- flow ---------- */
+.flow-sec{padding:110px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fsteps{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.fstep{padding:0 26px;border-left:1px solid var(--line);position:relative}
+.fstep:first-child{border-left:none;padding-left:0}
+.fstep .fn{font-family:'Space Grotesk';font-weight:600;font-size:15px;width:38px;height:38px;border-radius:50%;background:rgba(95,190,74,.12);border:1px solid rgba(95,190,74,.4);color:var(--accent2);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.fstep h3{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:18px;margin-bottom:10px;line-height:1.25}
+.fstep p{font:300 14px/1.6 'Inter';color:var(--muted)}
+.fnote{margin-top:44px;font:400 14px 'Space Grotesk';letter-spacing:.02em;color:var(--muted2);display:flex;align-items:center;gap:12px}
+.fnote::before{content:"";width:26px;height:1px;background:var(--accent)}
 
-/* ---------- FUND BAND (INK) ---------- */
-.fundband{background:var(--ink);color:var(--bone);text-align:center;padding:110px 0}
-.fundband .paper{position:absolute;inset:0;opacity:.6;background:radial-gradient(circle at 50% 0%,rgba(170,138,84,.16),transparent 60%);pointer-events:none}
-.fundband .inner{position:relative;z-index:2;max-width:820px;margin:0 auto}
-.fundband .eyebrow{color:#cbb389;margin-bottom:24px}
-.fundband .rule{background:var(--brass);margin:0 auto 28px}
-.fundband h2{font-size:52px;line-height:1.06;margin-bottom:20px;color:var(--bone)}
-.fundband h2 em{color:#cbb389}
-.fundband p{font:300 18px/1.7 'Inter';color:#c8c6bd;max-width:560px;margin:0 auto 40px}
-.fundband .b1{background:var(--brass);color:var(--ink)}
-.fundband .b1:hover{background:#c0a06a}
-.fundband .b2{border-color:rgba(203,179,137,.5);color:#e6dcc6}
-.fundband .b2:hover{background:rgba(203,179,137,.14);color:#f3ead4}
+/* ---------- fund band ---------- */
+.band-sec{position:relative;padding:130px 0;text-align:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.band-sec .contours{opacity:.28}
+.band-sec .glow{top:-260px;right:auto;left:50%;transform:translateX(-50%);opacity:.9}
+.band-in{position:relative;z-index:5;max-width:760px;margin:0 auto}
+.band-in h2{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:52px;line-height:1.06;letter-spacing:-.02em;margin-bottom:22px}
+.band-in h2 b{font-weight:600}.band-in h2 .lime{color:var(--accent2)}
+.band-in p{font:300 19px/1.6 'Inter';color:var(--muted);max-width:560px;margin:0 auto 40px}
+.band-in .cta{justify-content:center}
 
-/* ---------- STATS ---------- */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.stat{padding:48px 26px;text-align:center;border-left:1px solid var(--line-soft)}
+/* ---------- stats ---------- */
+.stats-sec{padding:0}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:64px 40px;text-align:center;border-left:1px solid var(--line)}
 .stat:first-child{border-left:none}
-.stat .fig{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;line-height:1;color:var(--brass-d);margin-bottom:12px}
-.stat .lab{font:400 12px 'Jost';letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stat .sv{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:42px;letter-spacing:-.02em;color:#fff;margin-bottom:10px}
+.stat .sv .lime{color:var(--accent2)}
+.stat .sl{font:400 13px 'Space Grotesk';letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
 
-/* ---------- LEADERSHIP ---------- */
-.leaders{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:960px;margin:0 auto;border-top:1px solid var(--line)}
-.leader{padding:52px 46px;text-align:center;border-left:1px solid var(--line-soft)}
-.leader:first-child{border-left:none}
-.leader .mono{width:64px;height:64px;border:1px solid var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--brass-d)}
-.leader h3{font-weight:600;font-size:29px;margin-bottom:6px}
-.leader .role{font:500 11px 'Jost';letter-spacing:.18em;text-transform:uppercase;color:var(--brass-m);margin-bottom:18px}
-.leader p{font:300 15px/1.7 'Inter';color:var(--muted);max-width:380px;margin:0 auto}
+/* ---------- leadership ---------- */
+.lead-sec{padding:120px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:54px}
+.lcard{background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:16px;padding:40px 38px}
+.lcard .av{width:64px;height:64px;border-radius:14px;background:rgba(95,190,74,.12);border:1px solid rgba(95,190,74,.3);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:600;font-size:22px;color:var(--accent2);margin-bottom:24px}
+.lcard h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px;margin-bottom:4px}
+.lcard .role{font:500 13px 'Space Grotesk';letter-spacing:.04em;color:var(--accent2);margin-bottom:18px}
+.lcard p{font:300 15px/1.65 'Inter';color:var(--muted)}
 
-/* ---------- FINAL CTA ---------- */
-.final{text-align:center;padding:120px 0}
-.final .rule{margin:0 auto 28px}
-.final h2{font-size:50px;line-height:1.06;margin-bottom:22px}
-.final p{font:300 18px/1.7 'Inter';color:var(--muted2);max-width:520px;margin:0 auto 40px}
+/* ---------- final cta ---------- */
+.final-sec{padding:130px 0;text-align:center;position:relative}
+.final-sec .glow2{left:auto;right:-200px;bottom:-200px;opacity:.7}
+.final-sec h2{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:48px;line-height:1.08;letter-spacing:-.02em;margin-bottom:20px}
+.final-sec h2 b{font-weight:600}.final-sec h2 .lime{color:var(--accent2)}
+.final-sec p{font:300 18px/1.6 'Inter';color:var(--muted);max-width:520px;margin:0 auto 38px}
+.final-sec .cta{justify-content:center}
 
-/* ---------- FOOTER ---------- */
-footer{background:var(--ink);color:#c8c6bd;padding:76px 0 44px}
-.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:52px;border-bottom:1px solid rgba(203,179,137,.16)}
-.fbrand .b{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.fbrand .b img{width:34px;height:34px}
-.fbrand .b .wm{font:600 14px 'Jost';letter-spacing:.2em;text-transform:uppercase;color:var(--bone)}
-.fbrand p{font:300 14px/1.7 'Inter';color:#9a978d;max-width:290px}
-.fcol h4{font:500 11px 'Jost';letter-spacing:.2em;text-transform:uppercase;color:#cbb389;margin-bottom:18px}
-.fcol a{display:block;font:300 14px/1 'Inter';color:#c8c6bd;text-decoration:none;margin-bottom:14px;transition:color .2s}
-.fcol a:hover{color:#e6dcc6}
-.disc{padding-top:34px;font:300 12px/1.7 'Inter';color:#8b887f;max-width:920px}
-.disc strong{color:#a8a59b;font-weight:500}
-.copy{margin-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font:400 12px 'Jost';letter-spacing:.1em;text-transform:uppercase;color:#8b887f}
+/* ---------- footer ---------- */
+footer{background:#040c09;border-top:1px solid var(--line);padding:72px 0 40px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.fbrand .brand{margin-bottom:18px}
+.fbrand p{font:300 14px/1.6 'Inter';color:var(--muted2);max-width:280px}
+.fcol h4{font:500 12px 'Space Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
+.fcol a{display:block;font:400 14.5px/1 'Inter';color:var(--muted);margin-bottom:14px;transition:color .2s}
+.fcol a:hover{color:#fff}
+.fdisc{margin-top:56px;padding-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.fdisc .sp{font:300 12px/1.7 'Inter';color:#5f7a5a;max-width:820px}
+.fdisc .cp{font:400 12px 'Space Grotesk';letter-spacing:.04em;color:var(--muted2);white-space:nowrap}
 
-/* ---------- RESPONSIVE ---------- */
+/* ---------- responsive ---------- */
 @media(max-width:900px){
   .wrap{padding:0 26px}
-  .nav .bar{padding:18px 26px}
+  .navin,.nav.scrolled .navin{padding:18px 26px}
   .navlinks{display:none}
-  .section{padding:78px 0}
-  .hero{padding:64px 0 72px}
   .hero h1{font-size:44px}
-  .hero .lede{font-size:17px}
-  .engines,.pillars,.stats{grid-template-columns:1fr}
-  .eng,.pillar,.stat{border-left:none;border-top:1px solid var(--line-soft)}
-  .eng:first-child,.pillar:first-child,.stat:first-child{border-top:none}
-  .proof{grid-template-columns:1fr}
-  .shead h2{font-size:36px}
-  .fundband{padding:72px 0}.fundband h2{font-size:38px}
-  .step{grid-template-columns:60px 1fr;gap:20px}
-  .step .rn{font-size:32px}
-  .leaders{grid-template-columns:1fr}
-  .leader{border-left:none;border-top:1px solid var(--line-soft)}
-  .leader:first-child{border-top:none}
-  .final h2{font-size:36px}
-  .fgrid{grid-template-columns:1fr 1fr;gap:32px}
-  .copy{flex-direction:column;text-align:center}
+  .hero .lede{font-size:18px}
+  .stripin{flex-direction:column;gap:16px;padding:20px 26px}
+  .si{border-left:none;padding-left:0}
+  .strip{position:relative}
+  .hero-sec{min-height:auto;padding-bottom:20px}
+  h2.hd{font-size:34px}
+  .egrid{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}.pillar{border-left:none;border-top:1px solid var(--line)}.pillar:first-child{border-top:none}
+  .rgrid{grid-template-columns:1fr}
+  .fsteps{grid-template-columns:1fr;gap:28px}.fstep{border-left:none;padding-left:0}
+  .band-in h2{font-size:34px}
+  .statgrid{grid-template-columns:repeat(2,1fr)}.stat{border-top:1px solid var(--line)}.stat:nth-child(-n+2){border-top:none}.stat:nth-child(odd){border-left:none}
+  .lgrid{grid-template-columns:1fr}
+  .final-sec h2{font-size:34px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .fdisc{flex-direction:column}
 }
-@media(max-width:560px){.fgrid{grid-template-columns:1fr}}
-.brand .mark,.fbrand .b .mark{width:34px;height:34px;display:inline-block;background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA8CAYAAADFXvyQAAAOgUlEQVR42u1ba5Ac1XX+zrk9MyvtzK4QbFYz3TMjYWGBLCAgAjYPS2CM40CEbBNMjFN2UQmvpEKCY+IkDqmKUBLHUCQpRyZOKi+McTAvOymMkQsQ4AIiZLBlS6AI0Mx09660pcfOrDS7s33PyY/pWYbVk31oBdb9sfNjem7f+91zvnPOd88Cx8fxMZlhjqG10DG2nmP6oI4DNd5qent7O7353ofbvuP4+xkdPMPvVgDWLbiXJ1LOSwysyxfcFz0vuxKAxN+bmT7BmXIp29vb25lIJe4kwo0AICKjzJwgIqjI/aMNe0t/f/8AAAdA9IsCkAMgyuVyi4zD/0VMZ1prR5k50XpARBrGmKSovCnQa8NS+PxMgcQzAY7neR82Dj8LwpkiMmKMSYjqMxC7UlTXGmOSIjJKoAWs9JRbdD8Zg+O8l8O8AyByXXc5O/SYEuZANSKipKr8VVAOP1+tDm2uDdbuzXSl9xHxZaoKAMRE13Rl0uVqtfbjeB55r7mYAWCz+exFDpvHVbWjRdCAXOeX++5ri2gCQPL57EeV+DtE1K2qo0SUsCJXhpXwe0fT3egoubHMK847zVHzAoAMACFCAyIrK5W+JwAk4g1r/JsEgFF3gXsGCR4nUFZVIyKMWuj5YSl8pTXvux0gAsA9PT2zUrOS64noVFUdBSACvSIshz9sgXEIvloC1h8B6CQio6qvjY5ES7dv374vfk7fzSTNAGxyVvJrzHyqiIwQUULJfuYw4CC2qITv+z+DyNVExCIywoYXJZLm3+O5+Whww7TyTj6fvYyY7xSRYWNMh6rcHpT7/ukw4IxFfACJanVoS6Yr03Ac52PW2t1EZLoy3Wur1epgW8at7wYXaxEtAZBCodAlsFuY+aRmfmOf9svhxbH72CPcFAEwS5cupR07wuVEiZfK5fLugx3Iu4qDPM+bS6Q3CGEZgz4Qkf1oX6nv1XewGRODOEbG2Wz2JE7yuRCcQYRTQXBh6S7f9x+fDpBoCrlG8/n8ycr6RYK8wJAXS6X+zfud8DI4WDdWZ+mh3HMMlGL2VKPmCkBXADiLiNJEBFVF61NE/ySoBH/TlirosQSQAWDdfO7hRML5hBWFilgoXiPCi0q0loTWVSqV8DBuwW3Aked5VxLrDQpcwsxJVYWqAgQQCEQEEQGAUWZOiNi7/XJ461TmSTSFZHwR2Dwjog0iJEHUnDx+g4ruJWADSJ8gdR4vl8sbxqcDLbDy+dzVynQbEy9tgUJEY9aiqtsAbFTgp4CuMGxOt9YOO47psNbe7pfDVVMFEk2Re4mXzz1Jhi9WUauqNRCEiee2NjX2wuapCwibVeSxemrkjl1bd1UBwHXdD7Khvyam5TEQQkQMAKr6iiq+C4PvU0Q/9X2/DgCFQuEEC/uIYVpmbTNSWpGrgnLw0FRwEk2F9WQL2bMdMi+NcYLFchH5OSXoPFKcD8VyEM4gpgy0CZKKRgr8oV/2v7Zw4cJUfbS+ikFfAMAt2UNVhUCPQu09lUrfD8fxisFSMDZgtKenJ52alXyGiM5S1QjAkFqcHgRB0IqoMwVQM9stuGuY+SZVVRVZ51fCi8c/6LquRw5dSKorALzPRnpDGIaveJ63BEb/jYnPEZGIiJzYYr5HyqsqlcpL4943nuCb2lKhd0GCnA1QZJjZEWsf9ivhpyZrRTRJ69NsNjubE7SFQC4zw4pcHZSDB9s2QwfLeTzP+01ifAOEdCx7pFR0C9TeVqn0fXdcMmsPqzF5uWscx9xvrY2Y2YHYiyqVvucmAxJPknvAST6PiV0AsNbuaNQb34/BiOJFtYpQijeSBAC36P4pGfqWQjtVVYwxKRG5Z9/e+jkxONxG3IfbXATACf3w21bkCWZ2AKgQ/dlM1mLNIKV6aSvCgOjJgYGBobYEb/xQAA2v4N5liFerSoOICMBeEf2sXw5u2rlzZ61d9ngH62keAuEvmh6qINCluVzu/THAfLQB0uYf+pUWObPqunhzZpz70liuVHDXGMO3WmuHmTip0NeVcZFf9u+LLYwm6A4WAAWl4AUV+V8iImZ2KEFXTWavPAnrsQuxMAXFolhHFmvxZLzQxn4RB4jcfO4rxvBNkbV1Y0yHqLw8gsaFwbbgJ215i05iTQksg0PAA2PpheqvthW+R42kCYDmcrk8GWxh5g4RaYDot8nQayLSsMaGHbajWiqVLIBRN+/+gTF8t7V2mA13QHS9jfTjYRjunGSk2Y/EXdc9hQw2AzAK3U3CC33f3zWRqt+ZDEDiSMaB6YgTOoeI/hMCsJIa6wxHiK4C8Fgun1vBTHdbaxtNMHWjTg4cGk/ghULhBNXoQgVfCpJzAVIAwsRziHkBgF3t2fp0A9RapsaJ39tclZnJiqwNysEPCoVfOllA/6GqtllPwW9Q47KBcGCi4Jh2YLz53jJS/S2B/TVmkyUAqgxVtU1plxyoPRnAhol4jDM5fEhVdRDAHoVWCdgHpV4lrRuYGwFYC+dfmWmOikaq2k/KywfKA/1HKJgdGJjFSLpD7qcZdDMUHyRiqAis2AYRJWKCNs1yBUMqmp5MJjyRIQAod1Lu9WAwOGVucu7gpk2bGgCwePHi5Ka9mxglDHuF3B8xm2VWbJ2JO6A6JCwFAK/H4ByJBbW7E3vF3OdoL91KzEuaMoeMEpEhJmZwUkSGVPRFsD6p1j4nwm9ms9l+3w8xkeJ1OhRFBYCFCxemhhv1/yGiS+MCVak5oKrfhNAfx/LHoapu0+ZKH4PqHUx8TgxMg5mTzfmkrkpPAXhYInkiDMPKjAtmvb29nQAQzYl452s79x0kjFI+n78AJDeD6JpY9hhlwwlR6SPRGyvNe64DiVwOgKin2DMvhdRXifBZ6Nvv70XkVSLcq5Ye8H1/63iFIVfM/bKBWQmJXo6z83fMeRMByACwuUJutWG+TkWhkHVBue8aHOKuKlfInc/Eq5joEhGRt4hdvlwphavHiWWt31xhiO4hYrd1fx8D8zyp/n0qNfvRrVu3jrSB0poDbsH9FhP9Bhsma+UTfsl/dCIa0YQByuazFzrGPAttZvgMs7hUKr16gFD6tjzFK+ZuJuWvgJBW1QYbTqqVNZVy8LutEqVYLCZFolvBtDqu7C0zGxH9iUJXxVrP+ApfWpaYz+eXksH6WG0cMOS8v1Qq7ZlIHjSRTNoC4L5K33Nq5QWALBEh0ui2g7y8FZINAPZL4RqxeoGobmTmpLW2ToZvdgvumlbVH0UjF7NjVovoSFNkQ8OKfKkr7Z8bg9N+exK1WW0zysNeH+dmCuDpGBwzkSx9ovdiBoBk5nQNMvOnRUQIWNyV6f52tVrd1W7q42o3BeDUarW+RE/ivkTknMVsTrNi68aYD6UznVyrDj01d+6JvhV7SiLhnCkiLwvpirAcPjQwMAb0gUR5BiDZk7MFVv46gCQ1Efr92mDtzYOsadoAUgCcd/P/Vx+pf5KJe5g5IdBsbbD2nbZNHCxFMPVd9eHqYO3+TFfmbMPmA9baYWOcj6S7MxsrpcrGWR2zn2FDqX3J+ud2vLmjFLuSHmJeA0C6091fZ8NLCYCorA/K4ZcxiXv8yYR5A8B6XnYlO84jLZEqEntZX6Vv7RFEDAagPT09nanZyacJtFRVIwINquBM3/eD8dZxWGXTy64kxzwiVuJIqZcEpeCpmRLMLADj+32PirVPxiKVMNGabDY7+wgOQADwwMDA0CiiqxS6GwCI6URlXRM/kzwCTdmg2bGWJzb/rKKRMSYhVu6bLDiTBaitIuNbVLUhIpFhs5AT/I9txHw4kJ3tpe3bVHEDMzvW2oZhXuEVsytj2YQPd6NSLBY72KFHQDgJAKtIoBa3TJR3poKD2rnIVKvV7enuzLBjzMebXGLOSWcye2rV2vNxzSWHsSSnNlj7WSaTXsLMpwMQKC313Pw3BgYG5FDgADCZ7vRDzLxcVRtEZFTsrwdB36uYgh6iqeju0HiDz2Uy6fOMMadZa0eY+Yp0V3pzrVrbeAQgAQDS6czzxLgegMPMPfsa9b7aYG099m+7MwCkt7e384QT5zzAzCus2Lph02FFbg78vofwVoPEjGnS+xWvTM61KrKVmVOq2mCie71i9jNthSkfKrKFYVgR6D8wsxEVJcUXsBjJlpzaRsi2WOyZl0g6P2DmFbHVzrJWVoWV8B5M4dXzlAJULpd320gvh2pAREkATDD3eQXvi/EmpU13PqCmbB37d9bKHihg2LzP3etegbcayglAlCvmPmSR/BEzX2CtHTHGdNhIvhpUgtsxxf2LU9mh1bKCLRHJpQrtIyJHRUeY6W+9gvdQodC7oE13Hi/uKwCz/Y3tO0C4n5lJVRWK6wEAy5rPuHn3FlZaR6CTRSUyxqSsyJeCSnAbjuH2l/2L2VxukUnQg0S8JD7llIjsIdI7Rzj6lx1v7th+AM3HARDNn+8usUo/VlWGYiQydlH/tv6Sl889yMZ8KtaAEqo6rMDvBOXgm5imztfpaMFTAKZWqw2cMIfvt0jkDZuzVAUAUszmIyz8+a6u7lMyJ2RsZ0/nnqFdQ3sx1hYM3bOntiPTnb6ciV1mdijC1mq1tr5rTvfZRHQhCAaKLUpYGZSDxzCNbcHT2WE2FmK9gnctoHcw8/y4wgYxAQqIym4CvQHgDSbaLTZ6xPf7H3fz7l8aw38e3/c/7FfCq4rFYkekoz8n0HqGuSluxZvWnumj0gbcjDrFOVZHfw9E1zHxAoVCpZnDNS9XATYMG9n/9svBCrfgXsJEawGwqu6EUN73/fq8efN64n9wAaapL/FoArSfdNrT05Pu6EhcDqIrFbgAQIGYQM22MYiVvYack1R1lsDuiK3jWQhd4/v+brx1zw9Mc4/00QQIbRrOmDtks9nZnOJT2OoiMLmqOFEVdlZq1l1bt26tukV3uYNoW6m0fduBdO/36qC2EH8sHuQxB1YrvDtYFn++3TUZx8fxcXwcH7+g4/8BaQl8CJV3AaoAAAAASUVORK5CYII=") center/contain no-repeat}
+@media(max-width:560px){
+  .fgrid{grid-template-columns:1fr}
+  .statgrid{grid-template-columns:1fr}.stat{border-left:none;border-top:1px solid var(--line)}.stat:first-child{border-top:none}
+}
 </style></head><body>
 
 <!-- ============ NAV ============ -->
-<header class="nav">
-  <div class="bar">
-    <a class="brand" href="#top"><span class="mark" role="img" aria-label="Pinecone Capital"></span><span class="wm">Pinecone Capital</span></a>
-    <nav class="navlinks">
+<nav class="nav" id="nav">
+  <div class="navin">
+    <a class="brand" href="#top"><span class="logo-slot"></span><div class="wm"><b>PINE</b><span>CONE</span> Capital</div></a>
+    <div class="navlinks">
       <a href="#firm">The Firm</a>
       <a href="#strategy">Strategy</a>
-      <a href="#fund">The Fund</a>
+      <a href="#fund">Rez Gap Plus</a>
       <a href="https://www.skool.com/fundinghub" target="_blank" rel="noopener">Community</a>
       <a href="https://pineconecapital.investnext.com/portal/offerings/10220/rez-gap-plus-fund-i/" class="portal" target="_blank" rel="noopener">Investor Portal</a>
-    </nav>
+    </div>
   </div>
-</header>
+</nav>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="top">
-  <div class="paper"></div>
+<section class="sec hero-sec" id="top">
+  <div class="glow2"></div><div class="glow"></div>
+  <svg class="contours" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"></svg>
+  <svg class="grain" width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <div class="fade"></div>
   <div class="wrap">
-    <div class="inner">
-      <div class="eyebrow">Pinecone Capital &nbsp;&middot;&nbsp; Private Credit</div>
-      <div class="rule"></div>
-      <h1>A disciplined house<br>for <em>private credit.</em></h1>
-      <p class="lede">The general partner behind Rez Gap Plus. We steward the capital, fund the transactions, and keep every dollar in escrow &mdash; with one mandate: preserve it first, then grow it.</p>
+    <div class="hero">
+      <div class="eyebrow">Private Credit · Short-Duration · Escrow-Protected</div>
+      <h1>Returns built on <b>solid</b> <span class="lime">ground.</span></h1>
+      <p class="lede">Pinecone Capital manages Rez Gap Plus — short-duration, escrow-protected transactional funding. Equity-like returns, engineered to protect the downside, because the capital never leaves escrow.</p>
       <div class="cta">
-        <a href="#fund" class="b1">Explore Rez Gap Plus</a>
+        <a href="#fund" class="b1">Explore Rez Gap Plus &rarr;</a>
         <a href="https://realquickfunds.com" class="b2">Real Quick Funds</a>
         <a href="https://www.skool.com/fundinghub" class="b3" target="_blank" rel="noopener">Join the community</a>
       </div>
-      <div class="engines">
-        <div class="eng"><div class="rn">I</div><h3>Rez Gap Plus</h3><p>Our flagship fund. Quarterly income, escrow-protected.</p></div>
-        <div class="eng"><div class="rn">II</div><h3>Real Quick Funds</h3><p>The transactional funding engine &mdash; EMD, double closes, Morby / Stack &mdash; escrow-protected.</p></div>
-        <div class="eng"><div class="rn">III</div><h3>The Community</h3><p>Where our funding and acquisition partners learn and grow.</p></div>
+    </div>
+  </div>
+  <div class="strip"><div class="stripin">
+    <div class="si"><span class="dot"></span><div><div class="lab">01 · Invest</div><div class="nm">Rez Gap Plus <small>The 506(b) private credit fund</small></div></div></div>
+    <div class="si"><span class="dot"></span><div><div class="lab">02 · Originate</div><div class="nm">Real Quick Funds <small>Sources &amp; underwrites every deal</small></div></div></div>
+    <div class="si"><span class="dot"></span><div><div class="lab">03 · Learn</div><div class="nm">The Community <small>Where our partners train</small></div></div></div>
+  </div></div>
+</section>
+
+<!-- ============ ONE FIRM, THREE ENGINES ============ -->
+<section class="sec engines-sec" id="firm">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">One Firm · Three Engines</div>
+      <h2 class="hd">A single flywheel for <b>escrow-protected</b> <span class="lime">private credit.</span></h2>
+      <p class="lead">Pinecone Capital, LLC is the general partner and manager. Beneath it, three purpose-built engines raise the capital, fund the deals, and train the operators who feed the pipeline.</p>
+    </div>
+    <div class="egrid">
+      <div class="ecard">
+        <div class="rn">01 · Invest</div>
+        <h3>Rez Gap Plus</h3>
+        <div class="sub">The 506(b) private credit fund</div>
+        <p>Our flagship fund. Qualified investors gain access to a diversified pool of short-duration, escrow-protected transactional funding — structured for quarterly income and downside protection.</p>
+        <a href="#fund" class="lnk">Access the Investor Portal &rarr;</a>
+      </div>
+      <div class="ecard">
+        <div class="rn">02 · Originate</div>
+        <h3>Real Quick Funds</h3>
+        <div class="sub">Sources &amp; underwrites every deal</div>
+        <p>Our origination engine. Real Quick Funds finds, vets, underwrites, and funds every deal the fund backs — EMD, double closes, and Morby / Stack funding, escrow-protected from start to finish.</p>
+        <a href="https://realquickfunds.com" class="lnk">realquickfunds.com &rarr;</a>
+      </div>
+      <div class="ecard">
+        <div class="rn">03 · Learn</div>
+        <h3>FundingHub Community</h3>
+        <div class="sub">Where our partners train</div>
+        <p>Our Skool community. Funding and acquisition partners train, share deal flow, and sharpen their underwriting — the top of the funnel that keeps quality deals flowing into the fund.</p>
+        <a href="https://www.skool.com/fundinghub" class="lnk" target="_blank" rel="noopener">Join FundingHub &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ STRATEGY / MANDATE ============ -->
-<section class="section strategy" id="strategy">
+<!-- ============ THE STRATEGY ============ -->
+<section class="sec strategy-sec" id="strategy">
   <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow">The Mandate</div>
-      <div class="rule"></div>
-      <h2>Capital deserves a <em>steward,</em><br>not a gambler.</h2>
-      <p>Pinecone Capital was built on a conservative premise: that consistent, secured income is worth more than the promise of a spectacular year. Every decision begins with the downside.</p>
+    <div class="sechead">
+      <div class="eyebrow">The Strategy</div>
+      <h2 class="hd">Capital preserved. <span class="lime">Income delivered.</span></h2>
     </div>
     <div class="pillars">
       <div class="pillar">
-        <div class="rn">I</div>
+        <div class="pn">01</div>
         <h3>Preservation First</h3>
-        <p>Capital is deployed as escrow-protected transactional funding &mdash; it never leaves escrow. Return of capital comes before return on capital &mdash; always.</p>
+        <p>Every dollar is deployed as escrow-protected funding that never leaves escrow. We underwrite to protect principal before we chase yield — return of capital before return on capital.</p>
       </div>
       <div class="pillar">
-        <div class="rn">II</div>
+        <div class="pn">02</div>
         <h3>Quarterly Income</h3>
-        <p>Short-duration loans turn capital quickly, producing a steady, predictable cash yield distributed to investors every quarter.</p>
+        <p>Short-duration transactions clear quickly and predictably, funding steady quarterly distributions to our investors rather than illiquid, multi-year lockups.</p>
       </div>
       <div class="pillar">
-        <div class="rn">III</div>
+        <div class="pn">03</div>
         <h3>Escrow-Protected</h3>
-        <p>Behind every dollar sits a live, title-verified real-estate closing and a licensed escrow account &mdash; not sentiment, and not leverage stacked upon leverage.</p>
+        <p>No unsecured paper, no speculation. Every dollar sits in licensed escrow tied to a real, title-verified closing — protected from start to finish, never handed to a borrower.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ WHY THE RISK SITS LOW ============ -->
-<section class="section" id="firm">
+<section class="sec risk-sec">
+  <div class="glow2"></div>
+  <svg class="contours" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"></svg>
   <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow">The Discipline</div>
-      <div class="rule"></div>
-      <h2>Why the risk <em>sits low.</em></h2>
-      <p>Downside protection is not a feature we advertise &mdash; it is the architecture of the entire strategy. Four safeguards stand between our investors and loss.</p>
+    <div class="sechead">
+      <div class="eyebrow">Why the risk sits low</div>
+      <h2 class="hd">Four layers of <b>protection</b> under <span class="lime">every dollar.</span></h2>
     </div>
-    <div class="proof">
-      <div class="pcell">
-        <div class="num">I</div>
-        <h3>Funds never leave escrow</h3>
-        <p>Every dollar is deployed inside a licensed escrow account tied to a specific closing. The capital funds the transaction and returns &mdash; it is never handed to a borrower.</p>
+    <div class="rgrid">
+      <div class="rcard">
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/></svg></div>
+        <div><h3>Funds never leave escrow</h3><p>Every dollar is deployed inside a licensed escrow account tied to a specific closing. The capital funds the transaction and returns — it is never handed to a borrower.</p></div>
       </div>
-      <div class="pcell">
-        <div class="num">II</div>
-        <h3>Title-verified closings</h3>
-        <p>Every transaction runs through licensed escrow and title. Clear title and controlled disbursement are conditions of every closing.</p>
+      <div class="rcard">
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 8l2-4h12l2 4M4 8v10a2 2 0 002 2h12a2 2 0 002-2V8M9 13h6"/></svg></div>
+        <div><h3>Escrow &amp; title protection</h3><p>Funds move through licensed escrow and every closing runs with title verification. Ownership and clean title are confirmed before a single dollar is released.</p></div>
       </div>
-      <div class="pcell">
-        <div class="num">III</div>
-        <h3>Short duration</h3>
-        <p>Transactions clear in days, not years. Capital returns almost as fast as it deploys, limiting exposure to any single deal, market, or cycle.</p>
+      <div class="rcard">
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M12 7v5l3 2M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg></div>
+        <div><h3>Short duration</h3><p>Transactions clear in days, not years. Capital turns over almost as fast as it deploys, exposure to any single deal is brief, and the book stays liquid and responsive.</p></div>
       </div>
-      <div class="pcell">
-        <div class="num">IV</div>
-        <h3>AI-assisted underwriting</h3>
-        <p>Machine-assisted analysis screens every file, overseen by a dedicated Chief Underwriting Officer. Judgment and technology, working together.</p>
+      <div class="rcard">
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M5 12H2M22 12h-3M6 6l-2-2M20 20l-2-2M9 12a3 3 0 106 0 3 3 0 00-6 0z"/></svg></div>
+        <div><h3>AI-assisted underwriting</h3><p>Every deal is screened by AI-assisted models and signed off by a Chief Underwriting Officer — a 30-year insurance discipline applied to private credit.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ HOW IT WORKS ============ -->
-<section class="section flow">
+<section class="sec flow-sec">
   <div class="wrap">
-    <div class="shead">
-      <div class="eyebrow">The Capital Flow</div>
-      <div class="rule"></div>
-      <h2>How it <em>works.</em></h2>
-      <p>A single, disciplined loop &mdash; from committed capital to secured loan to quarterly distribution, and back again.</p>
+    <div class="sechead">
+      <div class="eyebrow">How it works · The capital flow</div>
+      <h2 class="hd">From commitment to <span class="lime">distribution.</span></h2>
     </div>
-    <div class="steps">
-      <div class="step">
-        <div class="rn">I</div>
-        <div>
-          <span class="who">Investors &middot; LPs</span>
-          <h3>Capital is committed</h3>
-          <p>Qualified investors commit capital to Rez Gap Plus, LP, becoming limited partners in a fund built for escrow-protected, income-producing private credit.</p>
-        </div>
+    <div class="fsteps">
+      <div class="fstep">
+        <div class="fn">1</div>
+        <h3>Investors commit</h3>
+        <p>Qualified LPs subscribe to Rez Gap Plus through official 506(b) offering documents, committing capital to the fund.</p>
       </div>
-      <div class="step">
-        <div class="rn">II</div>
-        <div>
-          <span class="who">Pinecone Capital &middot; GP</span>
-          <h3>The fund allocates</h3>
-          <p>As general partner and manager, Pinecone Capital directs committed capital toward transactions that meet our short-duration, escrow-protected mandate.</p>
-        </div>
+      <div class="fstep">
+        <div class="fn">2</div>
+        <h3>Pinecone allocates</h3>
+        <p>Pinecone Capital, as GP and manager, allocates that capital across a diversified book of vetted, escrow-protected funding deals.</p>
       </div>
-      <div class="step">
-        <div class="rn">III</div>
-        <div>
-          <span class="who">Real Quick Funds &middot; Funding Engine</span>
-          <h3>Transactions are funded</h3>
-          <p>Real Quick Funds underwrites and funds each deal &mdash; EMD, double closes, Morby / Stack &mdash; with the capital held in escrow the entire time. The engine that puts capital to work.</p>
-        </div>
+      <div class="fstep">
+        <div class="fn">3</div>
+        <h3>Real Quick Funds originates</h3>
+        <p>Real Quick Funds underwrites and funds each short-duration transaction — EMD, double closes, Morby / Stack — with the capital held in escrow the entire time.</p>
       </div>
-      <div class="step">
-        <div class="rn">IV</div>
-        <div>
-          <span class="who">Repayment &middot; Distributions</span>
-          <h3>Funding clears; investors are paid</h3>
-          <p>As each transaction closes, the funding clears escrow and returns to the fund; income is distributed to investors every quarter. The community continually feeds new, qualified deal flow into the pipeline.</p>
-        </div>
+      <div class="fstep">
+        <div class="fn">4</div>
+        <h3>Funding clears &amp; distributes</h3>
+        <p>Each transaction closes, the funding clears escrow and returns to the fund; proceeds flow to investors as quarterly distributions.</p>
       </div>
+    </div>
+    <div class="fnote">The FundingHub community continuously feeds trained partners and fresh deal flow into the pipeline.</div>
+  </div>
+</section>
+
+<!-- ============ REZ GAP PLUS FUND BAND ============ -->
+<section class="sec band-sec" id="fund">
+  <div class="glow"></div>
+  <svg class="contours" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div class="grain" style="opacity:.05"></div>
+  <div class="band-in">
+    <div class="eyebrow center">Rez Gap Plus, LP</div>
+    <h2>Municipal-bond risk.<br><b class="lime">Equity-like returns.</b></h2>
+    <p>A short-duration, escrow-protected private credit fund built for investors who want real yield without giving up the safety of capital that never leaves escrow.</p>
+    <div class="cta">
+      <a href="https://pineconecapital.investnext.com/portal/offerings/10220/rez-gap-plus-fund-i/" class="b1" target="_blank" rel="noopener">Access the Investor Portal &rarr;</a>
+      <a href="https://meetings-na2.hubspot.com/realquickfunds/investor-discussion" class="b2" target="_blank" rel="noopener">Book a Call</a>
     </div>
   </div>
 </section>
 
-<!-- ============ FUND BAND (INK) ============ -->
-<section class="fundband" id="fund">
-  <div class="paper"></div>
-  <div class="wrap">
-    <div class="inner">
-      <div class="eyebrow">Rez Gap Plus, LP</div>
-      <div class="rule"></div>
-      <h2>Municipal-bond risk.<br><em>Equity-like returns.</em></h2>
-      <p>Our flagship fund is engineered for investors who want the steadiness of escrow-protected income without surrendering the ambition of real growth.</p>
-      <div class="cta">
-        <a href="https://pineconecapital.investnext.com/portal/offerings/10220/rez-gap-plus-fund-i/" class="b1" target="_blank" rel="noopener">Access the Investor Portal</a>
-        <a href="https://meetings-na2.hubspot.com/realquickfunds/investor-discussion" class="b2" target="_blank" rel="noopener">Book a Call</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ STATS ============ -->
-<section class="section" style="padding-top:96px;padding-bottom:96px">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat"><div class="fig">Quarterly</div><div class="lab">Distributions</div></div>
-      <div class="stat"><div class="fig">$20M+</div><div class="lab">Capital Deployed</div></div>
-      <div class="stat"><div class="fig">100%</div><div class="lab">Held in Escrow</div></div>
-      <div class="stat"><div class="fig">30&nbsp;yr</div><div class="lab">Operator Track Record</div></div>
-    </div>
+<!-- ============ STATS BAND ============ -->
+<section class="sec stats-sec">
+  <div class="statgrid">
+    <div class="stat"><div class="sv">Quarterly</div><div class="sl">Distributions</div></div>
+    <div class="stat"><div class="sv">$20M<span class="lime">+</span></div><div class="sl">Capital Deployed</div></div>
+    <div class="stat"><div class="sv">100<span class="lime">%</span></div><div class="sl">Held in Escrow</div></div>
+    <div class="stat"><div class="sv">30<span class="lime">yr</span></div><div class="sl">Operator Track Record</div></div>
   </div>
 </section>
 
 <!-- ============ LEADERSHIP ============ -->
-<section class="section strategy">
+<section class="sec lead-sec">
   <div class="wrap">
-    <div class="shead">
+    <div class="sechead">
       <div class="eyebrow">Leadership</div>
-      <div class="rule"></div>
-      <h2>Stewarded by <em>operators,</em><br>not spectators.</h2>
-      <p>Decades of institutional underwriting discipline, applied to a focused private-credit strategy.</p>
+      <h2 class="hd">Underwritten by <span class="lime">experience.</span></h2>
     </div>
-    <div class="leaders">
-      <div class="leader">
-        <div class="mono">PB</div>
+    <div class="lgrid">
+      <div class="lcard">
+        <div class="av">PB</div>
         <h3>Paul Brown</h3>
         <div class="role">Founder &amp; Managing Partner</div>
-        <p>A thirty-year insurance executive and former COO and Chief Underwriting Officer at Zurich and AIG across the United States, Japan, and Singapore. He brings institutional risk discipline to every dollar Pinecone stewards.</p>
+        <p>A 30-year insurance executive and former COO / Chief Underwriting Officer at Zurich and AIG across the United States, Japan, and Singapore. Paul brings institutional risk discipline to private credit — pricing downside first, upside second.</p>
       </div>
-      <div class="leader">
-        <div class="mono">CUO</div>
+      <div class="lcard">
+        <div class="av">CUO</div>
         <h3>Chief Underwriting Officer</h3>
         <div class="role">Credit &amp; Risk</div>
-        <p>Every file passes a dedicated underwriting authority who pairs machine-assisted analysis with seasoned human judgment &mdash; the final check between opportunity and exposure.</p>
+        <p>Leads deal-by-deal underwriting for the fund, pairing AI-assisted screening with hands-on credit review. Every deal clears title and escrow verification before a single dollar is funded.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="final" id="community">
+<section class="sec final-sec" id="community">
+  <div class="glow2"></div>
   <div class="wrap">
-    <div class="rule"></div>
-    <h2>Build with a house<br>that <em>protects first.</em></h2>
-    <p>Explore the fund, or speak with us directly about whether Rez Gap Plus fits your portfolio.</p>
+    <div class="eyebrow center">Get started</div>
+    <h2>Put your capital on <b>solid</b> <span class="lime">ground.</span></h2>
+    <p>Explore Rez Gap Plus, meet the team, and see how escrow-protected private credit fits your portfolio.</p>
     <div class="cta">
-      <a href="#fund" class="b1">Explore Rez Gap Plus</a>
+      <a href="https://pineconecapital.investnext.com/portal/offerings/10220/rez-gap-plus-fund-i/" class="b1" target="_blank" rel="noopener">Invest &rarr;</a>
       <a href="https://meetings-na2.hubspot.com/realquickfunds/investor-discussion" class="b2" target="_blank" rel="noopener">Book a Call</a>
     </div>
   </div>
@@ -391,13 +429,13 @@ footer{background:var(--ink);color:#c8c6bd;padding:76px 0 44px}
   <div class="wrap">
     <div class="fgrid">
       <div class="fbrand">
-        <div class="b"><span class="mark" role="img" aria-label="Pinecone Capital"></span><span class="wm">Pinecone Capital</span></div>
-        <p>A disciplined house for private credit. General partner and manager of Rez Gap Plus, LP &mdash; escrow-protected, short-duration, income-producing capital.</p>
+        <a class="brand" href="#top"><span class="logo-slot"></span><div class="wm"><b>PINE</b><span>CONE</span> Capital</div></a>
+        <p>Private credit, short-duration and escrow-protected. Pinecone Capital, LLC is the manager of Rez Gap Plus, LP.</p>
       </div>
       <div class="fcol">
         <h4>The Firm</h4>
-        <a href="#firm">The Discipline</a>
-        <a href="#strategy">Our Mandate</a>
+        <a href="#firm">About Pinecone</a>
+        <a href="#strategy">The Strategy</a>
         <a href="#firm">Leadership</a>
       </div>
       <div class="fcol">
@@ -408,19 +446,34 @@ footer{background:var(--ink);color:#c8c6bd;padding:76px 0 44px}
       </div>
       <div class="fcol">
         <h4>Connect</h4>
-        <a href="https://realquickfunds.com">Real Quick Funds</a>
-        <a href="https://www.skool.com/fundinghub" target="_blank" rel="noopener">Community &middot; Skool</a>
+        <a href="https://realquickfunds.com">Real Quick Funds &rarr;</a>
+        <a href="https://www.skool.com/fundinghub" target="_blank" rel="noopener">Community (Skool) &rarr;</a>
         <a href="https://pineconecapital.investnext.com/portal/offerings/10220/rez-gap-plus-fund-i/" target="_blank" rel="noopener">Investor Portal</a>
       </div>
     </div>
-    <div class="disc">
-      <strong>Important disclosure.</strong> Rez Gap Plus, LP is offered under Rule 506(b) of Regulation D. This site is for informational purposes only and is not an offer to sell or a solicitation of an offer to buy any security. Offers are made only to qualified investors through official offering documents. Any performance figures are illustrative; past performance does not guarantee future results.
-    </div>
-    <div class="copy">
-      <span>&copy; 2026 Pinecone Capital, LLC</span>
-      <span>Private Credit &middot; Short-Duration &middot; Escrow-Protected</span>
+    <div class="fdisc">
+      <p class="sp"><strong style="color:#7f9a78;font-weight:600">506(b) Disclosure.</strong> Rez Gap Plus, LP is offered under Rule 506(b) of Regulation D. This site is for informational purposes only and is not an offer to sell or a solicitation of an offer to buy any security. Offers are made only to qualified investors through official offering documents. Any performance figures are illustrative; past performance does not guarantee future results.</p>
+      <p class="cp">© 2026 Pinecone Capital, LLC</p>
     </div>
   </div>
 </footer>
 
+<script>
+(function(){
+  // scrolled nav state
+  var nav=document.getElementById('nav');
+  function onScroll(){ if(window.scrollY>24){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');} }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // white logo mark (reused verbatim from approved hero)
+  var LOGO="data:image/png;base64,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";
+  document.querySelectorAll('.logo-slot').forEach(function(s){
+    var img=document.createElement('img'); img.src=LOGO; img.alt="Pinecone Capital"; s.replaceWith(img);
+  });
+
+  // topographic contour motif (reused verbatim from approved hero)
+  var CONTOURS='<g fill="none" stroke="#5FBE4A" stroke-width="1.3" opacity="0.6">        <path d="M 1122 430 L 1118 445 L 1107 457 L 1096 469 L 1083 479 L 1065 485 L 1045 484 L 1028 480 L 1012 481 L 994 487 L 969 492 L 945 488 L 933 474 L 933 457 L 939 442 L 942 430 L 941 418 L 943 406 L 951 395 L 963 385 L 975 375 L 989 364 L 1009 355 L 1031 356 L 1049 367 L 1059 383 L 1066 394 L 1078 400 L 1098 406 L 1116 416 L 1122 430 Z"/>        <path d="M 1202 430 L 1193 456 L 1175 478 L 1156 499 L 1132 517 L 1100 527 L 1064 525 L 1033 520 L 1006 520 L 973 531 L 929 540 L 887 533 L 865 509 L 866 478 L 877 451 L 882 430 L 880 409 L 883 387 L 897 367 L 918 351 L 940 333 L 965 312 L 1000 297 L 1040 298 L 1072 318 L 1089 346 L 1101 367 L 1123 377 L 1158 387 L 1190 405 L 1202 430 Z"/>        <path d="M 1282 430 L 1269 467 L 1243 500 L 1215 529 L 1181 555 L 1135 569 L 1084 567 L 1039 559 L 1000 560 L 953 575 L 890 588 L 829 578 L 797 544 L 798 499 L 814 461 L 822 430 L 819 400 L 823 369 L 843 340 L 873 316 L 905 291 L 942 261 L 991 238 L 1049 240 L 1095 269 L 1120 309 L 1137 339 L 1169 354 L 1219 368 L 1264 394 L 1282 430 Z"/>        <path d="M 1361 430 L 1345 478 L 1311 521 L 1275 560 L 1230 593 L 1170 612 L 1103 609 L 1045 598 L 995 600 L 932 619 L 850 636 L 771 624 L 729 578 L 731 520 L 752 470 L 761 430 L 758 391 L 763 350 L 790 313 L 829 281 L 870 248 L 918 210 L 982 180 L 1057 182 L 1117 220 L 1150 272 L 1172 311 L 1214 331 L 1279 349 L 1339 383 L 1361 430 Z"/>        <path d="M 1441 430 L 1421 490 L 1379 542 L 1334 590 L 1279 632 L 1205 654 L 1122 651 L 1051 637 L 989 639 L 912 664 L 810 684 L 713 669 L 661 613 L 663 541 L 689 479 L 701 430 L 697 382 L 703 331 L 736 285 L 784 247 L 835 206 L 894 158 L 974 122 L 1066 124 L 1140 171 L 1180 236 L 1208 284 L 1259 308 L 1339 330 L 1413 372 L 1441 430 Z"/>        <path d="M 1520 430 L 1497 501 L 1448 563 L 1394 620 L 1328 670 L 1240 697 L 1142 693 L 1057 676 L 983 679 L 891 708 L 771 732 L 655 714 L 593 647 L 596 562 L 626 489 L 640 430 L 636 373 L 644 313 L 682 258 L 740 212 L 800 163 L 870 107 L 965 64 L 1075 66 L 1163 122 L 1211 199 L 1244 256 L 1305 285 L 1400 312 L 1487 360 L 1520 430 Z"/>        <path d="M 1600 430 L 1573 512 L 1516 584 L 1453 650 L 1377 708 L 1275 739 L 1161 734 L 1063 715 L 977 718 L 871 752 L 731 780 L 597 759 L 525 682 L 529 583 L 564 498 L 580 430 L 575 364 L 584 294 L 628 231 L 695 177 L 765 121 L 846 55 L 956 5 L 1083 8 L 1186 73 L 1241 162 L 1279 229 L 1350 262 L 1460 293 L 1561 349 L 1600 430 Z"/>        <path d="M 1680 430 L 1649 524 L 1584 606 L 1513 681 L 1426 746 L 1310 781 L 1181 776 L 1069 754 L 971 758 L 850 796 L 691 828 L 538 804 L 457 717 L 461 604 L 501 507 L 520 430 L 514 355 L 524 275 L 574 203 L 650 143 L 730 78 L 822 4 L 947 -53 L 1092 -50 L 1208 24 L 1271 125 L 1315 201 L 1395 239 L 1521 274 L 1636 338 L 1680 430 Z"/>        <path d="M 1759 430 L 1724 535 L 1652 627 L 1572 711 L 1476 784 L 1345 824 L 1200 818 L 1075 794 L 965 798 L 830 840 L 652 877 L 480 850 L 389 751 L 394 625 L 439 517 L 459 430 L 453 346 L 464 257 L 521 176 L 606 108 L 695 36 L 798 -48 L 939 -111 L 1101 -107 L 1231 -25 L 1302 88 L 1350 173 L 1440 216 L 1581 255 L 1710 327 L 1759 430 Z"/>        <path d="M 374 560 L 372 571 L 365 580 L 352 587 L 338 590 L 328 594 L 319 602 L 308 613 L 291 620 L 274 617 L 262 607 L 256 594 L 251 585 L 243 578 L 237 569 L 234 560 L 235 550 L 237 541 L 239 529 L 245 517 L 258 509 L 276 509 L 293 515 L 306 522 L 317 524 L 332 522 L 349 522 L 364 527 L 371 538 L 373 549 L 374 560 Z"/>        <path d="M 443 560 L 440 581 L 427 600 L 402 612 L 375 618 L 354 625 L 338 642 L 315 663 L 283 676 L 249 671 L 225 650 L 214 627 L 204 609 L 190 594 L 177 578 L 171 560 L 174 541 L 178 522 L 182 500 L 193 476 L 218 461 L 254 461 L 287 473 L 311 487 L 333 490 L 361 486 L 396 486 L 424 497 L 439 517 L 443 539 L 443 560 Z"/>        <path d="M 513 560 L 509 591 L 489 619 L 451 637 L 411 646 L 380 657 L 356 681 L 323 713 L 274 732 L 224 725 L 189 694 L 172 660 L 158 632 L 137 611 L 117 587 L 109 560 L 113 532 L 120 504 L 125 471 L 140 436 L 178 412 L 231 412 L 281 432 L 316 451 L 348 456 L 391 449 L 442 449 L 485 466 L 506 496 L 512 528 L 513 560 Z"/>        <path d="M 583 560 L 577 601 L 550 638 L 501 662 L 447 674 L 406 689 L 375 721 L 330 763 L 266 789 L 199 778 L 153 738 L 130 692 L 111 656 L 84 627 L 57 596 L 47 560 L 52 523 L 61 485 L 67 442 L 88 395 L 138 364 L 209 364 L 274 390 L 322 415 L 364 422 L 421 413 L 489 413 L 545 435 L 573 475 L 581 518 L 583 560 Z"/>        <path d="M 652 560 L 645 611 L 612 657 L 550 687 L 483 702 L 433 721 L 393 760 L 338 813 L 257 845 L 174 832 L 117 782 L 88 725 L 65 680 L 30 644 L -3 605 L -16 560 L -9 514 L 2 467 L 10 412 L 36 355 L 99 316 L 187 316 L 268 348 L 327 380 L 380 387 L 451 377 L 535 377 L 605 405 L 641 454 L 650 508 L 652 560 Z"/>        <path d="M 722 560 L 713 621 L 673 676 L 600 712 L 519 730 L 459 753 L 411 800 L 345 863 L 249 901 L 149 886 L 81 826 L 46 757 L 18 703 L -23 661 L -63 614 L -78 560 L -69 505 L -57 449 L -47 383 L -16 314 L 59 268 L 164 267 L 262 306 L 332 344 L 396 353 L 481 341 L 582 341 L 665 374 L 708 433 L 720 498 L 722 560 Z"/>        <path d="M 791 560 L 781 632 L 735 696 L 649 738 L 555 759 L 485 784 L 430 840 L 353 912 L 240 957 L 124 940 L 44 870 L 5 790 L -28 727 L -76 677 L -123 623 L -141 560 L -130 496 L -116 430 L -105 354 L -68 274 L 19 219 L 142 219 L 255 264 L 338 309 L 412 319 L 510 305 L 628 305 L 726 343 L 775 412 L 789 487 L 791 560 Z"/>      </g>';
+  document.querySelectorAll('svg.contours').forEach(function(svg){ svg.innerHTML=CONTOURS; });
+})();
+</script>
 </body></html>
