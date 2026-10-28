@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0F2A22">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/site.css?v=24392183">
 </head><body>
 <div class="hero">
  <img class="forest" src="/img/forest.svg" alt="">
@@ -127,6 +127,7 @@
  </div>
  <div class="copy"><span style="display:flex;align-items:center;gap:10px"><img src="/logo/derived-mark-light-cropped.png" alt="">© 2026 Pinecone Capital, LLC</span><span><a href="/legal">Legal</a> · <a href="/privacy">Privacy</a></span></div>
 </footer>
+<style>/* entry notice */.gate{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(15,42,34,.72);backdrop-filter:blur(6px)}.gate[hidden]{display:none}.gate .card{max-width:620px;width:100%;max-height:calc(100vh - 40px);overflow:auto;background:var(--fog);border-top:4px solid var(--logo);padding:clamp(26px,5vw,48px);box-shadow:0 30px 80px rgba(0,0,0,.35)}.gate img{height:42px;width:auto}.gate .cap{display:block;margin-top:22px}.gate h2{font-family:var(--disp);font-weight:500;font-size:clamp(34px,5vw,46px);line-height:1;margin-top:10px}.gate h2 em{color:var(--bark)}.gate p{margin-top:16px;font-size:15px;line-height:1.7;color:var(--ink2)}.gate .row{margin-top:28px;display:flex;flex-wrap:wrap;gap:22px;align-items:center}.gate .leave{font-size:14px;font-weight:600;color:var(--ink2);border-bottom:1px solid currentColor;padding-bottom:3px}</style>
 <div class="gate" id="gate" hidden role="dialog" aria-modal="true" aria-labelledby="gate-h">
  <div class="card">
   <img src="/logo/derived-mark-pine-transparent.png" alt="Pinecone Capital">
@@ -138,5 +139,10 @@
   <div class="row"><button class="btn" id="gate-ok" type="button">I understand</button><a class="leave" href="https://www.google.com" rel="noopener">Leave site</a></div>
  </div>
 </div>
-<script>(function(){var k='pcgp_notice_v1',g=document.getElementById('gate');try{if(localStorage.getItem(k))return}catch(e){}if(location.pathname.replace(/\.html$/,'')==='/legal')return;g.hidden=false;document.body.style.overflow='hidden';document.getElementById('gate-ok').focus();document.getElementById('gate-ok').onclick=function(){try{localStorage.setItem(k,String(Date.now()))}catch(e){}g.hidden=true;document.body.style.overflow=''};})();</script>
+<script>(function(){var k='pcgp_notice_v2',d=30*864e5,g=document.getElementById('gate');if(!g)return;
+function rd(){var v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){try{v=sessionStorage.getItem(k)}catch(e){}}if(!v){var m=document.cookie.match(new RegExp('(?:^|; )'+k+'=([^;]*)'));if(m)v=m[1]}return v&&(Date.now()-Number(v)<d)}
+function wr(){var v=String(Date.now());try{localStorage.setItem(k,v)}catch(e){}try{sessionStorage.setItem(k,v)}catch(e){}try{document.cookie=k+'='+v+';path=/;max-age='+(d/1000)+';SameSite=Lax;Secure'}catch(e){}}
+var p=location.pathname.replace(/\.html$/,'').replace(/\/$/,'');if(p==='/legal'||rd())return;
+g.hidden=false;document.documentElement.style.overflow='hidden';var b=document.getElementById('gate-ok');try{b.focus({preventScroll:true})}catch(e){}
+b.onclick=function(){wr();g.hidden=true;document.documentElement.style.overflow=''};})();</script>
 </body></html>
