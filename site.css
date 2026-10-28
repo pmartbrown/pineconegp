@@ -34,13 +34,14 @@ nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:
 .hero .forest{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;filter:saturate(.7)}
 .hfog{position:absolute;inset:0;background:linear-gradient(90deg,rgba(233,236,232,.95) 0%,rgba(233,236,232,.85) 40%,rgba(233,236,232,0) 68%)}
 .grain{position:absolute;inset:0;opacity:.04;background-image:radial-gradient(rgba(15,42,34,.55) .6px,transparent .7px);background-size:3px 3px;mix-blend-mode:multiply}
-.hcopy{position:relative;z-index:3;padding:clamp(40px,8vh,110px) var(--pad) 120px;max-width:1000px}
-.hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(84px,13.9vw,200px);line-height:.78;letter-spacing:-.035em;color:#08201A;margin-top:34px}
+.hcopy{position:relative;z-index:3;padding:clamp(20px,5vh,72px) var(--pad) 96px;max-width:1000px}
+.hcopy>.cap{font-size:13.5px;letter-spacing:.22em}
+.hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(58px,min(9.4vw,16.5vh),136px);line-height:.8;letter-spacing:-.035em;color:#08201A;margin-top:22px}
 .hcopy h1 em{font-style:italic;font-weight:500;color:var(--bark);display:block;padding-left:.59em;letter-spacing:-.03em}
 .hcopy h1 em::before{content:"";display:inline-block;width:.43em;height:2px;background:var(--lichen);vertical-align:middle;margin:0 .12em 0 -.55em;position:relative;top:-6px}
-.hcopy .lede{margin-top:52px;max-width:520px;font-size:19px;line-height:1.6;color:var(--ink2)}
+.hcopy .lede{margin-top:clamp(24px,4vh,40px);max-width:560px;font-size:clamp(18px,1.45vw,21px);line-height:1.6;color:var(--ink2)}
 .hcopy .lede strong{color:var(--pine);font-weight:600}
-.ctas{margin-top:34px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;font-size:14px;font-weight:600;letter-spacing:.02em}
+.ctas{margin-top:28px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;font-size:15px;font-weight:600;letter-spacing:.02em}
 .elev{position:absolute;z-index:3;left:var(--pad);bottom:26px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bark)}
 /* page hero (inner pages) */
 .phero{position:relative;overflow:hidden;background:var(--fog)}
@@ -186,7 +187,8 @@ footer{background:var(--logo);color:#B9C5BC;padding:40px var(--pad) 48px}
 }
 @media (max-width:720px){
  .hfog{background:linear-gradient(180deg,rgba(233,236,232,.95) 0%,rgba(233,236,232,.88) 55%,rgba(233,236,232,.35) 100%)}
- .hcopy .lede{font-size:17px;margin-top:36px}
+ .hcopy .lede{font-size:18px;margin-top:28px}
+ .hcopy>.cap{font-size:13px;letter-spacing:.14em;text-wrap:balance}
  .what,.recg{grid-template-columns:1fr}
  .strip{grid-template-columns:1fr;margin-top:56px}
  .trail{grid-template-columns:1fr;gap:28px;margin-top:48px}
@@ -219,8 +221,8 @@ footer{background:var(--logo);color:#B9C5BC;padding:40px var(--pad) 48px}
 .gate .card{max-width:620px;width:100%;max-height:calc(100vh - 40px);overflow:auto;background:var(--fog);border-top:4px solid var(--logo);padding:clamp(26px,5vw,48px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
 .gate img{height:42px;width:auto}
 .gate .cap{display:block;margin-top:22px}
-.gate h2{font-family:var(--disp);font-weight:500;font-size:clamp(34px,5vw,46px);line-height:1;margin-top:10px}
+.gate h2{font-family:var(--disp);font-weight:500;font-size:clamp(28px,3.4vw,36px);line-height:1.08;margin-top:10px;text-wrap:balance}
 .gate h2 em{color:var(--bark)}
-.gate p{margin-top:16px;font-size:15px;line-height:1.7;color:var(--ink2)}
+.gate p{margin-top:14px;font-size:15.5px;line-height:1.7;color:var(--ink2)}
 .gate .row{margin-top:28px;display:flex;flex-wrap:wrap;gap:22px;align-items:center}
 .gate .leave{font-size:14px;font-weight:600;color:var(--ink2);border-bottom:1px solid currentColor;padding-bottom:3px}
