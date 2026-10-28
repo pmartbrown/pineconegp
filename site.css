@@ -199,3 +199,27 @@ footer{background:var(--logo);color:#B9C5BC;padding:40px var(--pad) 48px}
  .brand .n{font-size:23px}.brand img{height:32px}
  .elev{display:none}
 }
+
+/* leadership */
+.people{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 72px;margin-top:8px}
+.person{border-top:1px solid var(--pine);padding-top:22px}
+.person .mono{width:120px;height:120px;border-radius:50%;background:var(--pine);color:var(--lichen);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:42px;letter-spacing:.02em;margin-bottom:18px}
+.person .photo{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;margin-bottom:18px}
+.person h3{font-family:var(--disp);font-weight:500;font-size:34px;line-height:1.05}
+.person .role{margin-top:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bark);font-weight:600}
+.person p{margin-top:16px;font-size:16px;line-height:1.7;color:var(--ink2)}
+@media (min-width:901px){.people.four{grid-template-columns:repeat(2,1fr);gap:56px 72px}}
+.founder{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:72px;align-items:start;margin-bottom:24px}
+@media (max-width:900px){.people,.people.four{grid-template-columns:1fr;gap:40px}
+.founder{grid-template-columns:1fr;gap:40px}}
+/* entry notice */
+.gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(15,42,34,.72);backdrop-filter:blur(6px)}
+.gate[hidden]{display:none}
+.gate .card{max-width:620px;width:100%;max-height:calc(100vh - 40px);overflow:auto;background:var(--fog);border-top:4px solid var(--logo);padding:clamp(26px,5vw,48px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.gate img{height:42px;width:auto}
+.gate .cap{display:block;margin-top:22px}
+.gate h2{font-family:var(--disp);font-weight:500;font-size:clamp(34px,5vw,46px);line-height:1;margin-top:10px}
+.gate h2 em{color:var(--bark)}
+.gate p{margin-top:16px;font-size:15px;line-height:1.7;color:var(--ink2)}
+.gate .row{margin-top:28px;display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.gate .leave{font-size:14px;font-weight:600;color:var(--ink2);border-bottom:1px solid currentColor;padding-bottom:3px}
