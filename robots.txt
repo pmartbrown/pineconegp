@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://pineconegp.com/sitemap.xml
