@@ -201,6 +201,7 @@ footer{background:var(--logo);color:#B9C5BC;padding:40px var(--pad) 48px}
 }
 
 /* leadership */
+.num.word{font-size:clamp(56px,5.6vw,84px);letter-spacing:-.02em}
 .people{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 72px;margin-top:8px}
 .person{border-top:1px solid var(--pine);padding-top:22px}
 .person .mono{width:120px;height:120px;border-radius:50%;background:var(--pine);color:var(--lichen);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:42px;letter-spacing:.02em;margin-bottom:18px}
