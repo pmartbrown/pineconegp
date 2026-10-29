@@ -3,10 +3,13 @@ main = "worker.js"
 compatibility_date = "2026-10-01"
 workers_dev = false
 
-# Only this path is handled by the Worker; the rest of the site stays on GitHub Pages.
+# Only /api/contact (and the 404 for /infra/*) is handled by the Worker; the rest of the site stays on GitHub Pages.
 routes = [
   { pattern = "pineconegp.com/api/contact", zone_name = "pineconegp.com" },
   { pattern = "www.pineconegp.com/api/contact", zone_name = "pineconegp.com" },
+  # Hide this source folder (infra/) from the public site: the worker answers 404 here.
+  { pattern = "pineconegp.com/infra/*", zone_name = "pineconegp.com" },
+  { pattern = "www.pineconegp.com/infra/*", zone_name = "pineconegp.com" },
 ]
 
 # Cloudflare Email Routing send binding. destination_address locks it to one verified inbox.

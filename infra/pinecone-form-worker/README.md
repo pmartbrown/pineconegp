@@ -9,6 +9,10 @@ Receives the investor access form on `https://pineconegp.com/investor-access` (P
 - Sends a plain-text email: From `forms@mail.pineconegp.com`, Reply-To the visitor, Subject `Investor access request: <name>`, with every answer, the message, and a timestamp (Mountain Time and UTC).
 - Returns `{ok:true}` (200) on success, 502 if sending fails. The page shows an error on any non-2xx.
 
+Source lives in `infra/pinecone-form-worker/`. GitHub Pages publishes the whole repo (there is a `.nojekyll`), so the Worker also owns `pineconegp.com/infra/*` and `www.pineconegp.com/infra/*` and answers 404 there, which keeps this folder off the public site.
+
+Deployed: 2026-10-28. Email Routing is enabled for the subdomain `mail.pineconegp.com` only (Cloudflare MX route1/2/3.mx.cloudflare.net on `mail.`, SPF TXT on `mail.`, DKIM `cf2024-1._domainkey.pineconegp.com`). Cloudflare sends with an SRS return path on the apex, so the apex SPF includes `_spf.mx.cloudflare.net` next to Google: `v=spf1 include:_spf.google.com include:_spf.mx.cloudflare.net ~all`.
+
 ## Deploy prerequisites (one time)
 
 1. **Email Routing on the subdomain `mail.pineconegp.com` only.** In Cloudflare dashboard > pineconegp.com > Email > Email Routing, enable it for the subdomain `mail.pineconegp.com` (Settings > Subdomains > add `mail`). Do **not** enable Email Routing on the apex `pineconegp.com`: that would replace the existing MX records and break the current admin@pineconegp.com mailbox. Cloudflare adds MX/SPF/DKIM records for `mail.pineconegp.com` only.
@@ -26,7 +30,7 @@ Receives the investor access form on `https://pineconegp.com/investor-access` (P
 From the repo root:
 
 ```sh
-cd worker
+cd infra/pinecone-form-worker
 npx wrangler deploy
 ```
 

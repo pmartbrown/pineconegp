@@ -74,6 +74,9 @@ function buildMime({ subject, replyTo, replyName, text }) {
 
 export default {
   async fetch(request, env) {
+    // Only /api/contact is a real endpoint. The infra/* routes exist so the worker source
+    // in the repo (infra/) is never served by GitHub Pages through the custom domain.
+    if (new URL(request.url).pathname !== "/api/contact") return new Response("Not found", { status: 404 });
     const origin = request.headers.get("Origin") || "";
     const allowed = ALLOWED_ORIGINS.includes(origin);
 
