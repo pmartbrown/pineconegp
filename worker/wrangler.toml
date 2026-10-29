@@ -1,0 +1,18 @@
+name = "pineconegp-contact"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+# Only this path is handled by the Worker; the rest of the site stays on GitHub Pages.
+routes = [
+  { pattern = "pineconegp.com/api/contact", zone_name = "pineconegp.com" },
+  { pattern = "www.pineconegp.com/api/contact", zone_name = "pineconegp.com" },
+]
+
+# Cloudflare Email Routing send binding. destination_address locks it to one verified inbox.
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "admin@pineconegp.com"
+
+[observability]
+enabled = true

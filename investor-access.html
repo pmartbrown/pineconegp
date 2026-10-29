@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0F2A22">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=87e8b165">
+<link rel="stylesheet" href="/site.css?v=a98a6ada">
 </head><body>
 <header class="phero">
  <nav aria-label="Main">
@@ -28,32 +28,51 @@
  <img class="treeline" src="/img/trees-fog.svg" alt="">
 </header>
 <main class="sec" style="padding-left:0;padding-right:0;background:var(--fog)"><div class="prose">
- <aside><span class="cap">How it works</span><a href="#request">1 · Request access</a><a href="#request">2 · Investor questionnaire</a><a href="#request">3 · A personal call</a><a href="#existing-investors">4 · Sign in</a></aside>
+ <aside><span class="cap">How it works</span><a href="#request">1 · Request access</a><a href="#request">2 · A personal call</a><a href="#existing-investors">3 · Sign in</a></aside>
  <div class="body">
   <h2 id="request">Request <em>access.</em></h2>
-  <p>Tell us who you are and how we know each other. We review every request personally. Fund materials are shared only after approval, never on this public site.</p>
+  <p>Tell us who you are and tap a few quick answers. We review every request personally. Fund materials are shared only after approval, never on this public site.</p>
   <form class="formcard" id="access-form" novalidate>
-   <label for="name">Full name</label><input id="name" name="name" autocomplete="name" required>
-   <label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required>
-   <label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel">
-   <label for="relationship">How we know each other</label><textarea id="relationship" name="relationship" required placeholder="For example: who introduced us, or where we met"></textarea>
-   <label class="chk"><input type="checkbox" required> I understand this is a request to start a conversation, not an offer to buy or sell any security.</label>
-   <button class="btn" type="submit">Send request</button>
-   <p class="note" id="sent" hidden>Your email app should open with the request filled in. Press send there to finish. If nothing opened, email <a class="ul" href="mailto:Admin@PineconeGP.com">Admin@PineconeGP.com</a> directly.</p>
-   <p class="note">Prefer email? Write to <a class="ul" href="mailto:Admin@PineconeGP.com?subject=Investor%20access%20request">Admin@PineconeGP.com</a>.</p>
+   <label for="name">Full name</label><input id="name" name="name" autocomplete="name" maxlength="120" required>
+   <label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" required>
+   <label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="phone-err">
+   <p class="err" id="phone-err" hidden>Please enter a phone number with at least 10 digits so I can call you.</p>
+   <fieldset class="chips" id="g-accredited"><legend>Are you an accredited investor?</legend><div class="opts"><label class="chip"><input type="radio" name="accredited" value="Yes" required><span>Yes</span></label><label class="chip"><input type="radio" name="accredited" value="No" required><span>No</span></label></div></fieldset>
+   <fieldset class="chips" id="g-us_person"><legend>Are you a US person?</legend><div class="opts"><label class="chip"><input type="radio" name="us_person" value="Yes" required><span>Yes</span></label><label class="chip"><input type="radio" name="us_person" value="No" required><span>No</span></label></div></fieldset>
+   <fieldset class="chips" id="g-investor_type"><legend>Do you invest as an individual or through an entity?</legend><div class="opts"><label class="chip"><input type="radio" name="investor_type" value="Individual" required><span>Individual</span></label><label class="chip"><input type="radio" name="investor_type" value="Entity" required><span>Entity</span></label></div></fieldset>
+   <fieldset class="chips" id="g-heard_from"><legend>How did you hear about Pinecone?</legend><div class="opts"><label class="chip"><input type="radio" name="heard_from" value="A personal introduction" required><span>A personal introduction</span></label><label class="chip"><input type="radio" name="heard_from" value="Real Quick Funds" required><span>Real Quick Funds</span></label><label class="chip"><input type="radio" name="heard_from" value="Funding Hub" required><span>Funding Hub</span></label><label class="chip"><input type="radio" name="heard_from" value="Social media" required><span>Social media</span></label><label class="chip"><input type="radio" name="heard_from" value="Event or presentation" required><span>Event or presentation</span></label><label class="chip"><input type="radio" name="heard_from" value="Other" required><span>Other</span></label></div></fieldset>
+   <fieldset class="chips" id="g-interest"><legend>Are you more interested in income or growth?</legend><div class="opts"><label class="chip"><input type="radio" name="interest" value="Income" required><span>Income</span></label><label class="chip"><input type="radio" name="interest" value="Growth" required><span>Growth</span></label></div></fieldset>
+   <label for="message">Anything else you’d like me to know? A little about you is welcome.</label><textarea id="message" name="message" maxlength="1000"></textarea>
+   <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" tabindex="-1" autocomplete="off"></div>
+   <label class="chk"><input type="checkbox" id="ack" required> I understand this is a request to start a conversation, not an offer to buy or sell any security.</label>
+   <p class="err" id="form-err" role="alert" hidden></p>
+   <button class="btn" type="submit" id="send">Send request</button>
   </form>
+  <div class="formcard done" id="sent" hidden tabindex="-1"><p>Thank you. I review every request personally and will call you.</p></div>
+  <p class="note fnote">Prefer email? Write to <a class="ul" href="mailto:Admin@PineconeGP.com?subject=Investor%20access%20request">Admin@PineconeGP.com</a>.</p>
   <h2 id="existing-investors">Existing <em>investors.</em></h2>
   <p>Approved investors sign in through the private link in their welcome email. If you need that link again, email <a class="ul" href="mailto:Admin@PineconeGP.com?subject=Investor%20sign-in%20link">Admin@PineconeGP.com</a> and we will resend it.</p>
   <p class="small" style="margin-top:28px">Nothing on this page is an offer to sell, or a solicitation of an offer to buy, any security. Any offering is made only through formal offering documents, and only to persons with whom the general partner has a pre-existing relationship and whom it has approved. See <a class="ul" href="/legal">Legal</a> and <a class="ul" href="/privacy">Privacy</a>.</p>
  </div>
 </div><script>
-document.getElementById('access-form').addEventListener('submit',function(e){
- e.preventDefault();var f=e.target;
- if(!f.reportValidity())return;
- var b='Name: '+f.name.value+'\nEmail: '+f.email.value+'\nPhone: '+(f.phone.value||'-')+'\n\nHow we know each other:\n'+f.relationship.value+'\n';
- window.location.href='mailto:Admin@PineconeGP.com?subject='+encodeURIComponent('Investor access request: '+f.name.value)+'&body='+encodeURIComponent(b);
- document.getElementById('sent').hidden=false;
-});
+(function(){var f=document.getElementById('access-form'),b=document.getElementById('send'),fe=document.getElementById('form-err'),pe=document.getElementById('phone-err'),FAIL='That didn\u2019t go through. Please try again, or email Admin@PineconeGP.com.',G=['accredited','us_person','investor_type','heard_from','interest'];
+function v(n){var r=f.querySelector('input[name="'+n+'"]:checked');return r?r.value:''}
+function show(m){fe.textContent=m;fe.hidden=false}
+f.phone.addEventListener('input',function(){if(f.phone.value.replace(/\D/g,'').length>=10){pe.hidden=true;f.phone.removeAttribute('aria-invalid')}});
+f.addEventListener('change',function(e){if(e.target.type==='radio')e.target.closest('fieldset').classList.remove('bad')});
+f.addEventListener('submit',function(e){
+ e.preventDefault();fe.hidden=true;var first=null;
+ if(!f.name.value.trim()||!f.email.checkValidity()||!f.email.value.trim()){first=first||(!f.name.value.trim()?f.name:f.email)}
+ if(f.phone.value.replace(/\D/g,'').length<10){pe.hidden=false;f.phone.setAttribute('aria-invalid','true');first=first||f.phone}
+ G.forEach(function(n){var fs=document.getElementById('g-'+n);if(!v(n)){fs.classList.add('bad');first=first||fs.querySelector('input')}});
+ if(!f.querySelector('#ack').checked)first=first||f.querySelector('#ack');
+ if(first){show(pe.hidden?'Please complete the highlighted answers above.':'Please add a phone number with at least 10 digits, and complete any highlighted answers.');first.focus();return}
+ var d={name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),accredited:v('accredited'),us_person:v('us_person'),investor_type:v('investor_type'),heard_from:v('heard_from'),interest:v('interest'),message:f.message.value.trim().slice(0,1000),company:f.company.value,page:location.href};
+ b.disabled=true;b.textContent='Sending\u2026';
+ fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).then(function(r){
+  if(!r.ok)throw 0;f.hidden=true;var s=document.getElementById('sent');s.hidden=false;s.focus();
+ }).catch(function(){show(FAIL);b.disabled=false;b.textContent='Send request'});
+});})();
 </script></main>
 <div class="ftrees"><img class="treeline" src="/img/trees-logo.svg" alt=""></div>
 <footer>
